@@ -1,13 +1,13 @@
-## Fake Pinterest
+## 🗺️ Fake Pinterest
 
 - Projetinho de site em Flask.
 
-# Objetivo 
+# 📊 Objetivo 
 
 - Ganhar base técnica por meio de conceitos e extrutura do Framework.
 - Aprofundar técnicas de desenvolvimento web.
 
-# O que utilizei no projetinho
+# 🚀 O que utilizei no projetinho
 
 
 ###
@@ -24,11 +24,11 @@
 
 ###
 
-# Apoio
+# 👨🏻‍🏫 Apoio
 
 - Hashtag Treinamentos.
 
-# Status
+# 🌐 Status
 
 - Em andamento.
 - Linguagens utilizadas podem sofrer alterações.
