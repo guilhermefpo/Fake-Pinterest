@@ -1,8 +1,13 @@
 # Banco de Dados.
-from fakepinterest import database
+from fakepinterest import database, login_manager
+from flask_login import UserMixin
 from datetime import datetime
 
-class Usuario(database.Model):
+@login_manager.user_loader
+def load_usuario(id_usuario):
+    return Usuario.query.get(int(id_usuario))
+
+class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     username = database.Column(database.String, nullable=False, unique=True)
     email = database.Column(database.String, nullable=False, unique=True)
