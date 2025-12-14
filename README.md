@@ -2,13 +2,12 @@
 
 - Projetinho de site em Flask.
 
-# 📊 Objetivo 
+# 📊 Objetivo
 
 - Ganhar base técnica por meio de conceitos e extrutura do Framework.
 - Aprofundar técnicas de desenvolvimento web.
 
 # 🚀 O que utilizei no projetinho
-
 
 ###
 
@@ -32,3 +31,4 @@
 
 - Em andamento.
 - Linguagens utilizadas podem sofrer alterações.
+- Ouve problemas no repo antigo.
