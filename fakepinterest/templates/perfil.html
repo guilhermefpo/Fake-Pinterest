@@ -4,6 +4,8 @@ conteudo %}
 
 <a href="{{ url_for('logout') }}">Sair</a>
 
+<img src="{{ url_for('static', filename='fotos_posts/defaut.png')}}" />
+
 {% for foto in usuario.fotos %}
 <img src="" />
 {% endfor %} {% endblock %}
