@@ -1,21 +1,20 @@
-    {% extends "base.html"%}
+    {% extends "base.html" %}
 
+{% block titulo %}Home{% endblock %}
 
-    {%block titulo%} Home {%endblock%}
+{% block conteudo %}
+<h1>FakePinterest - Site no ar</h1>
 
-    {%block conteudo%}
-    <h1>FakePinterest- Site no ar</h1>
+<form method="POST">
+    {{ form.csrf_token }}
 
-    {%block formulario%}
-     <form method="POST">
-       {{ form.csrf_token }}
-        {{ form.email.label() }}
-        {{ form.email() }}
-         
-        {{ form.senha.label() }}
-        {{ form.senha() }}
+    {{ form.email.label() }}
+    {{ form.email() }}
 
-        {{ form.botao_confirmacao() }}
-     </form>
-    {%endblock%}
-    {%endblock%}
+    {{ form.senha.label() }}
+    {{ form.senha() }}
+
+    {{ form.botao_confirmacao() }}
+</form>
+{% endblock %}
+

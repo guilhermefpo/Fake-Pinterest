@@ -1,11 +1,23 @@
-{% extends "base.html" %} {% block titulo %}Perfil{% endblock %} {% block
-conteudo %}
+{% extends "base.html" %}
+
+{% block titulo %}Perfil{% endblock %}
+
+{% block conteudo %}
 <h1>Perfil do usuário: {{ usuario.username }}</h1>
+
+{% if form %}
+<form method="POST" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+
+    {{ form.foto() }}
+    {{ form.confirmacao(class="btn") }}
+</form>
+{% endif %}
 
 <a href="{{ url_for('logout') }}">Sair</a>
 
-<img src="{{ url_for('static', filename='fotos_posts/defaut.png')}}" />
-
 {% for foto in usuario.fotos %}
-<img src="" />
-{% endfor %} {% endblock %}
+    <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+{% endfor %}
+
+{% endblock %}
