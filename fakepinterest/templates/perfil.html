@@ -1,23 +1,53 @@
 {% extends "base.html" %}
 
-{% block titulo %}Perfil{% endblock %}
+{% block titulo %}Perfil - {{ usuario.username }}{% endblock %}
 
 {% block conteudo %}
-<h1>Perfil do usuário: {{ usuario.username }}</h1>
+{% include "navbar.html" %}
 
-{% if form %}
-<form method="POST" enctype="multipart/form-data">
+<div class="bloco-add-img">
+  <h2>{{ usuario.username }} - Enviar foto</h2>
+
+  {% if form %}
+  <form method="POST" enctype="multipart/form-data" class="bloco-input-botao">
     {{ form.csrf_token }}
 
-    {{ form.foto() }}
-    {{ form.confirmacao(class="btn") }}
-</form>
-{% endif %}
+    <!-- input escondido -->
+    {{ form.foto(class="input-arquivo", id="imagem-arquivo") }}
 
-<a href="{{ url_for('logout') }}">Sair</a>
+    <!-- botão que dispara o input -->
+    <div class="bloco-arquivo">
+      <button type="button" class="botao-arquivo" onclick="document.getElementById('imagem-arquivo').click()">
+        Escolher arquivo
+      </button>
+      <p id="nome-arquivo">Nenhum arquivo escolhido</p>
+    </div>
 
+    {{ form.botao_confirmacao(class="botao-login") }}
+  </form>
+  {% endif %}
+</div>
+
+<div class="conteudo">
 {% for foto in usuario.fotos %}
-    <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}" />
+  <div class="bloco-imagem">
+    <img src="{{ url_for('static', filename='fotos_posts/{}'.format(foto.imagem)) }}">
+  </div>
 {% endfor %}
+</div>
+
+<!-- Script para mostrar nome do arquivo selecionado -->
+<script>
+  const inputArquivo = document.getElementById('imagem-arquivo');
+  const nomeArquivo = document.getElementById('nome-arquivo');
+
+  inputArquivo.addEventListener('change', () => {
+    if(inputArquivo.files.length > 0) {
+      nomeArquivo.textContent = inputArquivo.files[0].name;
+    } else {
+      nomeArquivo.textContent = 'Nenhum arquivo escolhido';
+    }
+  });
+</script>
 
 {% endblock %}

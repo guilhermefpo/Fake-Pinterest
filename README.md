@@ -32,3 +32,4 @@
 - Em andamento.
 - Linguagens utilizadas podem sofrer alterações.
 - Ouve problemas no repo antigo.
+- CSS podendo ter alterações futuras.
